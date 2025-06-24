@@ -12,7 +12,7 @@ namespace FinaTrackProject
 {
     public partial class HelpForm : Form
     {
-        //This stores the previous form the user was on, so that can be redirected to the same form upon clicking the back button.
+        //This stores the previous form the user was on, such that can be redirected to the same form upon clicking the back button.
         private Form previousForm;
 
         public HelpForm(Form previousForm)
