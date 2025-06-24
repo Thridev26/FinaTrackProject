@@ -48,6 +48,7 @@ namespace FinaTrackProject
             this.toolTip2 = new System.Windows.Forms.ToolTip(this.components);
             this.toolTip3 = new System.Windows.Forms.ToolTip(this.components);
             this.toolTip4 = new System.Windows.Forms.ToolTip(this.components);
+            this.button2 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.FinTrackPicbx)).BeginInit();
             this.SuspendLayout();
@@ -91,7 +92,7 @@ namespace FinaTrackProject
             // 
             // Registerbtn
             // 
-            this.Registerbtn.BackColor = System.Drawing.Color.RoyalBlue;
+            this.Registerbtn.BackColor = System.Drawing.Color.DodgerBlue;
             this.Registerbtn.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Registerbtn.Location = new System.Drawing.Point(85, 508);
             this.Registerbtn.Name = "Registerbtn";
@@ -104,17 +105,17 @@ namespace FinaTrackProject
             // 
             // FinTrackPicbx
             // 
-            this.FinTrackPicbx.Image = ((System.Drawing.Image)(resources.GetObject("FinTrackPicbx.Image")));
-            this.FinTrackPicbx.Location = new System.Drawing.Point(85, 32);
+            this.FinTrackPicbx.Image = global::FinaTrackProject.Properties.Resources.LumiaX;
+            this.FinTrackPicbx.Location = new System.Drawing.Point(50, 15);
             this.FinTrackPicbx.Name = "FinTrackPicbx";
-            this.FinTrackPicbx.Size = new System.Drawing.Size(117, 118);
+            this.FinTrackPicbx.Size = new System.Drawing.Size(183, 135);
             this.FinTrackPicbx.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.FinTrackPicbx.TabIndex = 1;
             this.FinTrackPicbx.TabStop = false;
             // 
             // Welcomelbl
             // 
-            this.Welcomelbl.Font = new System.Drawing.Font("Segoe UI", 14F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Welcomelbl.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Welcomelbl.Location = new System.Drawing.Point(44, 153);
             this.Welcomelbl.Name = "Welcomelbl";
             this.Welcomelbl.Size = new System.Drawing.Size(231, 115);
@@ -173,8 +174,8 @@ namespace FinaTrackProject
             // 
             // SignInbtn
             // 
-            this.SignInbtn.BackColor = System.Drawing.Color.RoyalBlue;
-            this.SignInbtn.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SignInbtn.BackColor = System.Drawing.Color.DodgerBlue;
+            this.SignInbtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SignInbtn.Location = new System.Drawing.Point(474, 424);
             this.SignInbtn.Name = "SignInbtn";
             this.SignInbtn.Size = new System.Drawing.Size(145, 61);
@@ -186,7 +187,7 @@ namespace FinaTrackProject
             // 
             // button1
             // 
-            this.button1.BackColor = System.Drawing.Color.RoyalBlue;
+            this.button1.BackColor = System.Drawing.Color.DodgerBlue;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.Location = new System.Drawing.Point(777, 424);
             this.button1.Name = "button1";
@@ -197,6 +198,19 @@ namespace FinaTrackProject
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.DodgerBlue;
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.ForeColor = System.Drawing.Color.Black;
+            this.button2.Location = new System.Drawing.Point(777, 505);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(103, 45);
+            this.button2.TabIndex = 16;
+            this.button2.Text = "Help";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -204,6 +218,7 @@ namespace FinaTrackProject
             this.BackColor = System.Drawing.Color.DarkOrchid;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1026, 579);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.SignInbtn);
             this.Controls.Add(this.ShowPassCbx);
@@ -213,9 +228,10 @@ namespace FinaTrackProject
             this.Controls.Add(this.UserIDlbl);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.Titlelbl);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "Form1";
-            this.Text = "Finance Tracker Login Form";
+            this.Text = "LumiaX Login ";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.FinTrackPicbx)).EndInit();
@@ -243,6 +259,7 @@ namespace FinaTrackProject
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.ToolTip toolTip3;
         private System.Windows.Forms.ToolTip toolTip2;
+        private System.Windows.Forms.Button button2;
     }
 }
 

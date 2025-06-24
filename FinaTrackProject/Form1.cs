@@ -38,13 +38,8 @@ namespace FinaTrackProject
         {
             PasswordBox.UseSystemPasswordChar = !ShowPassCbx.Checked;
         }
-
-        /*
-         * This is the sign in button.
-         * It checks whether the user inputs values in the textboxes, if not, an error message is displayed.
-         * Using a for loop, the data from the listboxes on the Register form is read, and matched against the users input.
-         * If the user inputs valid details, the Transaction Management form is displayed.
-         */
+        
+        //The following checks whether the user inputs values in the textboxes, if not, an error message is displayed.
         private void SignInbtn_Click(object sender, EventArgs e)
         {
             string userID = UserIDBox.Text.Trim();
@@ -55,71 +50,66 @@ namespace FinaTrackProject
                 MessageBox.Show("Please enter both User ID and Password.", "Input Required", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
+
             try
             {
                 bool foundMatch = false;
 
-                // Ensure registerFormRef and listboxes are not null
-                if (registerFormRef == null)
-                {
-                    MessageBox.Show("There are no records of this account." + Environment.NewLine + "Click Register! to create your account!", "Heads Up!!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
+                // Read all lines from the text file with the account details
+                string[] allLines = File.ReadAllLines("TextFile1.txt");
 
-                if (registerFormRef.listBox1 == null || registerFormRef.listBox2 == null)
+                foreach (string line in allLines)
                 {
-                    MessageBox.Show("You do not exist in our records.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }                
+                    string[] parts = line.Split(','); 
 
-                // Loop through the items to check for matching credentials
-                for (int i = 0; i < registerFormRef.listBox1.Items.Count; i++)
-                {
-                    string storedUserID = registerFormRef.listBox1.Items[i].ToString();
-                    string storedPassword = registerFormRef.listBox2.Items[i].ToString();
-
-                    // Trim any extra spaces before comparison
-                    if (userID.Equals(storedUserID.Trim()) && password.Equals(storedPassword.Trim()))
+                    if (parts.Length == 2)
                     {
-                        foundMatch = true;
-                        break; 
+                        string storedUserID = parts[0].Trim().ToLower();
+                        string storedPassword = parts[1].Trim();
+
+                        if (userID.Trim().ToLower() == storedUserID && password == storedPassword)
+                        {
+                            foundMatch = true;
+                            break;
+                        }
                     }
                 }
-
-                
+                //If a match is found, the user sees a message saying they have successfully signed in
                 if (foundMatch)
                 {
                     MessageBox.Show("Login successful!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                    // Passing the username to the next form
                     string userName = UserIDBox.Text;
-                    TransactionManagement tmForm = new TransactionManagement(this.registerFormRef);
-                    tmForm.SetUserName(userName); // Assuming you have a method to set the user name in TransactionManagement
+                    TransactionManagement tmForm = new TransactionManagement(registerFormRef);
+                    tmForm.SetUserName(userName);
                     tmForm.Show();
                     this.Hide();
                 }
                 else
                 {
-                    MessageBox.Show("Invalid credentials. Please try again", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    //Should the account not exist or if the input was invalid, the user sees an error message
+                    MessageBox.Show("This account does not exist. Please try again", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-            }
-            catch (NullReferenceException ex)
-            {
-                // Specifically handle null reference exceptions
-                MessageBox.Show("An error occurred due to a null reference: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             catch (Exception ex)
             {
-                // Catch all other exceptions
-                MessageBox.Show("An unexpected error occurred: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+               //If there are any unexpected exceptions, the user will see this message
+                MessageBox.Show("An error has occurred: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-                  
 
-        //This button closes the entire program.
-        private void button1_Click_1(object sender, EventArgs e)
+
+            //This button closes the entire program.
+            private void button1_Click_1(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            //This shows the Help form, while remembering which form the user was on
+            HelpForm helpForm = new HelpForm(this);
+            helpForm.Show();
         }
     }
 }

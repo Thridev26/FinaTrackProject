@@ -52,6 +52,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="HelpForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HelpForm.Designer.cs">
+      <DependentUpon>HelpForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="TransactionManagement.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -66,6 +72,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="HelpForm.resx">
+      <DependentUpon>HelpForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="TransactionManagement.resx">
       <DependentUpon>TransactionManagement.cs</DependentUpon>
     </EmbeddedResource>
@@ -106,6 +115,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\backpic.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SaveIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LumiaX.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
